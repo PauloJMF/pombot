@@ -1,9 +1,9 @@
-import { Client, Events, IntentsBitField } from "discord.js";
-import { IDiscordJSConfig } from "../../config/DiscordConfig";
+import { Client, Events, IntentsBitField } from 'discord.js'
+import { type IDiscordJSConfig } from '../../config/DiscordConfig'
 
 export default class DiscordJSClient {
   private readonly instance: Client
-  public constructor(private readonly config: IDiscordJSConfig) {
+  public constructor (private readonly config: IDiscordJSConfig) {
     const client = new Client({
       intents: [
         IntentsBitField.Flags.Guilds,
@@ -20,8 +20,7 @@ export default class DiscordJSClient {
     this.instance = client
   }
 
-  public getInstance(): Client {
+  public getInstance (): Client {
     return this.instance
   }
-
 }

@@ -1,6 +1,6 @@
 
 export interface IDiscordJSConfig {
-  TOKEN : string
+  TOKEN: string
 }
 
 const DiscordJSConfig: IDiscordJSConfig = {
