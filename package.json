@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn src/index.ts",
+    "dev": "ts-node-dev -r dotenv/config --respawn src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Paulo Machado",
@@ -21,6 +21,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "discord.js": "^14.7.1"
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3"
   }
 }
