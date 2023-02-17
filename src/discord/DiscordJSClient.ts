@@ -1,5 +1,5 @@
 import { REST, Routes, Client, Collection, Events, IntentsBitField, type CommandInteraction } from 'discord.js'
-import { type IDiscordJSConfig } from '../../config/DiscordConfig'
+import { type IDiscordJSConfig } from '../config/DiscordConfig'
 import path from 'path'
 import * as fs from 'fs'
 
@@ -29,7 +29,6 @@ export default class DiscordJSClient {
     client.once(Events.ClientReady, (event) => {
       console.log(`BOT STARTED, ${event.user.tag}`)
     })
-
     void client.login(this.config.TOKEN)
     return client
   }
