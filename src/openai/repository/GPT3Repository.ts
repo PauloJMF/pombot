@@ -32,6 +32,7 @@ export class GPT3Repository implements GenerativeAIRepository {
       prompt: description
     })
     return {
+      model: 'DALL·E',
       imageURL: response.data.data[0].url ?? ''
     }
   }

@@ -19,7 +19,7 @@ module.exports = {
     await interaction.deferReply()
     const response = await chatGPTRepository.generateImage(input)
     const embed = new GenerateImageEmbed()
-      .usingInput(input)
+      .usingInput(input, response.model)
       .usingImage(response.imageURL)
     await interaction.editReply({ embeds: [embed] })
   }

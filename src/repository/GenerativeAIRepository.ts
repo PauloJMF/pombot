@@ -6,6 +6,7 @@ export interface GenerateCompletionResponse {
 
 export interface GenerateImageResponse {
   imageURL: string
+  model: string
 }
 export default interface GenerativeAIRepository {
   generateCompletion: (question: string) => Promise<GenerateCompletionResponse>

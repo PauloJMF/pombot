@@ -7,8 +7,8 @@ export class GenerateImageEmbed extends EmbedBuilder {
     this.setTimestamp()
   }
 
-  usingInput (input: string): GenerateImageEmbed {
-    return this.setTitle(`DALLE: ${input}`)
+  usingInput (input: string, model: string): GenerateImageEmbed {
+    return this.setTitle(`${model}: ${input}`)
   }
 
   usingImage (url: string): GenerateImageEmbed {

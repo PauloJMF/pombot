@@ -5,7 +5,6 @@ const chatGPTRepository = container.openai.gptRepository
 const askGptEmbed = container.discord.embeds.askGPTEmbed
 
 module.exports = {
-  isDeferReply: true,
   data: new SlashCommandBuilder()
     .setName('askgpt')
     .setDescription('Ask ChatGPT!')
