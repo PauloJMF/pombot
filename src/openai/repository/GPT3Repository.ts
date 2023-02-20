@@ -1,11 +1,9 @@
 import type OpenAiClient from '../client/OpenAiClient'
-import type GenerativeAIRepository from '../../repository/GenerativeAIRepository'
 import type {
-  GenerateImageResponse,
-  GenerateCompletionResponse
-} from '../../repository/GenerativeAIRepository'
+  GenerateCompletionResponse, GenerativeTextAIRepository
+} from '../../repository/GenerativeTextAIRepository'
 
-export class GPT3Repository implements GenerativeAIRepository {
+export class GPT3Repository implements GenerativeTextAIRepository {
   constructor (private readonly openAiClient: OpenAiClient) { }
 
   async generateCompletion (question: string): Promise<GenerateCompletionResponse> {
@@ -24,16 +22,6 @@ export class GPT3Repository implements GenerativeAIRepository {
     return {
       model: completion.model,
       response: response.data.choices[0].text ?? ''
-    }
-  }
-
-  async generateImage (description: string): Promise<GenerateImageResponse> {
-    const response = await this.openAiClient.getInstance().createImage({
-      prompt: description
-    })
-    return {
-      model: 'DALL·E',
-      imageURL: response.data.data[0].url ?? ''
     }
   }
 }

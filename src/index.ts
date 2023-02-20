@@ -6,3 +6,5 @@ const bot = new DiscordClient(DiscordConfig)
 void bot.refreshCommands()
 
 void bot.startEventListener()
+
+void bot.startButtonsEventListener()

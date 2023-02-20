@@ -80,4 +80,24 @@ export default class DiscordJSClient {
       }
     })
   }
+
+  public async startButtonsEventListener (): Promise<void> {
+    this.getInstance().on(Events.InteractionCreate, async interaction => {
+      if (!interaction.isButton()) return
+      const [commandName, action] = interaction.customId.split(':')
+      const command = this.commands.get(commandName)
+
+      if (command === undefined) {
+        console.error(`No command matching ${commandName} was found.`)
+        return
+      }
+
+      try {
+        await command[action](interaction)
+      } catch (error) {
+        console.error(error)
+        await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true })
+      }
+    })
+  }
 }

@@ -1,20 +1,23 @@
 import { GPT3Repository } from '../../openai/repository/GPT3Repository'
 import OpenAiClient from '../../openai/client/OpenAiClient'
 import openAIConfig from '../../config/OpenAIConfig'
-import { AskGPTEmbed } from '../../discord/embeds/AskGPTEmbed'
-import { GenerateImageEmbed } from '../../discord/embeds/GenerateImageEmbed'
+import { BigTextEmbed } from '../../discord/embeds/BigTextEmbed'
+import { SingleImageEmbed } from '../../discord/embeds/SingleImageEmbed'
+import DalleRepository from '../../openai/repository/DalleRepository'
 
 const openAiClient = new OpenAiClient(openAIConfig)
 const gptRepository = new GPT3Repository(openAiClient)
+const dalleRepository = new DalleRepository(openAiClient)
 
 const container = {
   openai: {
-    gptRepository
+    gptRepository,
+    dalleRepository
   },
   discord: {
     embeds: {
-      askGPTEmbed: new AskGPTEmbed(),
-      generateImageEmbed: new GenerateImageEmbed()
+      askGPTEmbed: new BigTextEmbed(),
+      generateImageEmbed: new SingleImageEmbed()
     }
   }
 }
