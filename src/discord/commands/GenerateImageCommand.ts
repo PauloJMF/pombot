@@ -7,7 +7,7 @@ import {
 } from 'discord.js'
 import container from '../../application/container'
 import { SingleImageEmbed } from '../embeds/SingleImageEmbed'
-import { type GenerativeImageAIRepository } from '../../repository/GenerativeTextAIRepository'
+import type GenerativeImageAIRepository from '../../repository/GenerativeImageAIRepository'
 
 const dalleRepository: GenerativeImageAIRepository = container.openai.dalleRepository
 const commandName = 'generateimage'
