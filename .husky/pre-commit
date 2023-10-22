@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+DIFFED_FILES_TO_LINT=$(git diff HEAD~1 --diff-filter=d --name-only -- "*.ts" "*.js")
+
+npx eslint $DIFFED_FILES_TO_LINT
