@@ -1,17 +1,16 @@
 import { type IOpenAiConfig } from '../../config/OpenAIConfig'
-import { Configuration, OpenAIApi } from 'openai'
+import OpenAI from "openai";
 
 export default class OpenAiClient {
-  private readonly client: OpenAIApi
+  private readonly client: OpenAI
 
   constructor(private readonly config: IOpenAiConfig) {
-    const configuration = new Configuration({
+    this.client = new OpenAI({
       apiKey: config.apiKey
     })
-    this.client = new OpenAIApi(configuration)
   }
 
-  getInstance(): OpenAIApi {
+  getInstance(): OpenAI {
     return this.client
   }
 }

@@ -3,6 +3,8 @@ import type GenerativeTextAIRepository from '../../repository/GenerativeTextAIRe
 import type {
     GenerateCompletionResponse
 } from '../../repository/GenerativeTextAIRepository'
+import OpenAI from "openai";
+import Completion = OpenAI.Completion;
 
 export class GPT3Repository implements GenerativeTextAIRepository {
   constructor(private readonly openAiClient: OpenAiClient) {
@@ -20,10 +22,10 @@ export class GPT3Repository implements GenerativeTextAIRepository {
       logprobs: null,
       stop: '{}'
     }
-    const response = await this.openAiClient.getInstance().createCompletion(completion)
+    const response = await this.openAiClient.getInstance().completions.create(completion) as Completion
     return {
       model: completion.model,
-      response: response.data.choices[0].text ?? ''
+      response: response.choices[0].text ?? ''
     }
   }
 }
