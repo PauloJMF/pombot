@@ -1,13 +1,11 @@
 import type OpenAiClient from '../client/OpenAiClient'
-import type GenerativeTextAIRepository from '../../repository/GenerativeTextAIRepository'
-import type {
-  GenerateCompletionResponse
-} from '../../repository/GenerativeTextAIRepository'
+import type GenerativeTextAIRepository, {GenerateCompletionResponse} from '../../repository/GenerativeTextAIRepository'
 
 export class GPT3Repository implements GenerativeTextAIRepository {
-  constructor (private readonly openAiClient: OpenAiClient) { }
+  constructor(private readonly openAiClient: OpenAiClient) {
+  }
 
-  async generateCompletion (question: string): Promise<GenerateCompletionResponse> {
+  async generateCompletion(question: string): Promise<GenerateCompletionResponse> {
     const completion = {
       model: 'text-davinci-003',
       prompt: question,

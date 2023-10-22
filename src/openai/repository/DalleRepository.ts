@@ -1,13 +1,14 @@
-import { randomBytes } from 'crypto'
-import { srcToFile } from '../../shared/srcToFile'
+import {randomBytes} from 'crypto'
+import {srcToFile} from '../../shared/srcToFile'
 import type OpenAiClient from '../client/OpenAiClient'
-import { type GenerateImageResponse } from '../../repository/GenerativeImageAIRepository'
 import type GenerativeImageAIRepository from '../../repository/GenerativeImageAIRepository'
+import {type GenerateImageResponse} from '../../repository/GenerativeImageAIRepository'
 
 export default class DalleRepository implements GenerativeImageAIRepository {
-  constructor (private readonly openAiClient: OpenAiClient) { }
+  constructor(private readonly openAiClient: OpenAiClient) {
+  }
 
-  async generateImage (description: string): Promise<GenerateImageResponse> {
+  async generateImage(description: string): Promise<GenerateImageResponse> {
     const response = await this.openAiClient.getInstance().createImage({
       prompt: description,
       n: 1,
@@ -19,7 +20,7 @@ export default class DalleRepository implements GenerativeImageAIRepository {
     }
   }
 
-  async generateImageVariant (imageUrl: string): Promise<GenerateImageResponse> {
+  async generateImageVariant(imageUrl: string): Promise<GenerateImageResponse> {
     const id = randomBytes(16).toString('hex')
     const imageFile = await srcToFile(imageUrl, `${id}.png`, 'image/png')
     const response = await this.openAiClient.getInstance().createImageVariation(
@@ -33,7 +34,7 @@ export default class DalleRepository implements GenerativeImageAIRepository {
     }
   }
 
-  async generateImageEdit (imageUrl: string, prompt: string): Promise<GenerateImageResponse> {
+  async generateImageEdit(imageUrl: string, prompt: string): Promise<GenerateImageResponse> {
     const id = randomBytes(16).toString('hex')
     const imageFile = await srcToFile(imageUrl, `${id}.png`, 'image/png')
     const response = await this.openAiClient.getInstance().createImageEdit(

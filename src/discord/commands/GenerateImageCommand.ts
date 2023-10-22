@@ -6,7 +6,7 @@ import {
   SlashCommandBuilder
 } from 'discord.js'
 import container from '../../application/container'
-import { SingleImageEmbed } from '../embeds/SingleImageEmbed'
+import {SingleImageEmbed} from '../embeds/SingleImageEmbed'
 import type GenerativeImageAIRepository from '../../repository/GenerativeImageAIRepository'
 
 const dalleRepository: GenerativeImageAIRepository = container.openai.dalleRepository
@@ -28,12 +28,12 @@ module.exports = {
         .setDescription('The size of the output image')
         .setRequired(false)
         .addChoices(
-          { name: 'small', value: 'small' },
-          { name: 'medium', value: 'medium' },
-          { name: 'large', value: 'large' }
+          {name: 'small', value: 'small'},
+          {name: 'medium', value: 'medium'},
+          {name: 'large', value: 'large'}
         )
     ),
-  async execute (interaction: CommandInteraction) {
+  async execute(interaction: CommandInteraction) {
     const input = String(interaction.options.get('prompt')?.value)
     await interaction.deferReply()
     const response = await dalleRepository.generateImage(input)
@@ -48,14 +48,14 @@ module.exports = {
       .usingInput(input, response.model)
       .usingImage(response.imageURL)
 
-    await interaction.editReply({ content: input, embeds: [embed], components: [buttonRow] })
+    await interaction.editReply({content: input, embeds: [embed], components: [buttonRow]})
   },
-  async retry (buttonInteraction: ButtonInteraction) {
+  async retry(buttonInteraction: ButtonInteraction) {
     await buttonInteraction.deferUpdate()
     const response = await dalleRepository.generateImage(buttonInteraction.message.content)
     const embed = new SingleImageEmbed()
       .usingInput(buttonInteraction.message.content, response.model)
       .usingImage(response.imageURL)
-    await buttonInteraction.editReply({ embeds: [embed] })
+    await buttonInteraction.editReply({embeds: [embed]})
   }
 }

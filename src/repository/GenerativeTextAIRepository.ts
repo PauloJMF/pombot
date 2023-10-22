@@ -1,4 +1,3 @@
-
 export interface GenerateCompletionResponse {
   response: string
   model: string

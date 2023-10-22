@@ -1,4 +1,3 @@
-
 export interface IOpenAiConfig {
   organizationID: string
   apiKey: string

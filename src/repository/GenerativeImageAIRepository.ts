@@ -8,3 +8,4 @@ export default interface GenerativeImageAIRepository {
   generateImageVariant: (imageUrl: string) => Promise<GenerateImageResponse>
   generateImageEdit: (imageUrl: string, prompt: string) => Promise<GenerateImageResponse>
 }
+

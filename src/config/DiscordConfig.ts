@@ -1,4 +1,3 @@
-
 export interface IDiscordJSConfig {
   TOKEN: string
   CLIENT_ID: string
