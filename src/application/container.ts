@@ -1,6 +1,5 @@
-import { BigTextEmbed } from '../../discord/embeds/BigTextEmbed'
-import { SingleImageEmbed } from '../../discord/embeds/SingleImageEmbed'
-
+import { BigTextEmbed } from '../infrastructure/discord/embeds/BigTextEmbed'
+import { SingleImageEmbed } from '../infrastructure/discord/embeds/SingleImageEmbed'
 
 const container = {
   discord: {
