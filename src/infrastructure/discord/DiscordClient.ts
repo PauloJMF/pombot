@@ -4,13 +4,13 @@ import path from 'path'
 import * as fs from 'fs'
 import type DiscordCommand from './DiscordCommand'
 
-export default class DiscordJSClient {
+export default class DiscordClient {
   private instance!: Client
   private readonly commands: Collection<string, any>
   private readonly commandsJSON: CommandInteraction[]
 
   public constructor (
-    private readonly config: DiscordConfig
+    private readonly discordConfig: DiscordConfig
   ) {
     this.commands = new Collection()
     this.commandsJSON = []
@@ -31,7 +31,7 @@ export default class DiscordJSClient {
       console.log(`BOT STARTED, ${event.user.tag}`)
     })
 
-    await client.login(this.config.TOKEN)
+    await client.login(this.discordConfig.TOKEN)
     this.instance = client
   }
 
@@ -49,9 +49,9 @@ export default class DiscordJSClient {
 
   public async refreshCommands (): Promise<void> {
     try {
-      const rest = new REST({ version: '10' }).setToken(this.config.TOKEN)
+      const rest = new REST({ version: '10' }).setToken(this.discordConfig.TOKEN)
       await rest.put(
-        Routes.applicationGuildCommands(this.config.CLIENT_ID, this.config.GUILD_ID),
+        Routes.applicationGuildCommands(this.discordConfig.CLIENT_ID, this.discordConfig.GUILD_ID),
         { body: this.commandsJSON }
       )
     } catch (error) {
