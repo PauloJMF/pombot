@@ -1,5 +1,5 @@
-import {type IOpenAiConfig} from '../../config/OpenAIConfig'
-import {Configuration, OpenAIApi} from 'openai'
+import { type IOpenAiConfig } from '../../config/OpenAIConfig'
+import { Configuration, OpenAIApi } from 'openai'
 
 export default class OpenAiClient {
   private readonly client: OpenAIApi

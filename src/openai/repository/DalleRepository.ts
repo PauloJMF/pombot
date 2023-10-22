@@ -1,8 +1,8 @@
-import {randomBytes} from 'crypto'
-import {srcToFile} from '../../shared/srcToFile'
+import { randomBytes } from 'crypto'
+import { srcToFile } from '../../shared/srcToFile'
 import type OpenAiClient from '../client/OpenAiClient'
 import type GenerativeImageAIRepository from '../../repository/GenerativeImageAIRepository'
-import {type GenerateImageResponse} from '../../repository/GenerativeImageAIRepository'
+import { type GenerateImageResponse } from '../../repository/GenerativeImageAIRepository'
 
 export default class DalleRepository implements GenerativeImageAIRepository {
   constructor(private readonly openAiClient: OpenAiClient) {

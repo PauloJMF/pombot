@@ -1,5 +1,8 @@
 import type OpenAiClient from '../client/OpenAiClient'
-import type GenerativeTextAIRepository, {GenerateCompletionResponse} from '../../repository/GenerativeTextAIRepository'
+import type GenerativeTextAIRepository from '../../repository/GenerativeTextAIRepository'
+import type {
+    GenerateCompletionResponse
+} from '../../repository/GenerativeTextAIRepository'
 
 export class GPT3Repository implements GenerativeTextAIRepository {
   constructor(private readonly openAiClient: OpenAiClient) {

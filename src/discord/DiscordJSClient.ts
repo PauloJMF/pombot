@@ -1,5 +1,5 @@
-import {Client, Collection, type CommandInteraction, Events, IntentsBitField, REST, Routes} from 'discord.js'
-import {type IDiscordJSConfig} from '../config/DiscordConfig'
+import { Client, Collection, type CommandInteraction, Events, IntentsBitField, REST, Routes } from 'discord.js'
+import { type IDiscordJSConfig } from '../config/DiscordConfig'
 import path from 'path'
 import * as fs from 'fs'
 

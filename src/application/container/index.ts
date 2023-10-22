@@ -1,8 +1,8 @@
-import {GPT3Repository} from '../../openai/repository/GPT3Repository'
+import { GPT3Repository } from '../../openai/repository/GPT3Repository'
 import OpenAiClient from '../../openai/client/OpenAiClient'
 import openAIConfig from '../../config/OpenAIConfig'
-import {BigTextEmbed} from '../../discord/embeds/BigTextEmbed'
-import {SingleImageEmbed} from '../../discord/embeds/SingleImageEmbed'
+import { BigTextEmbed } from '../../discord/embeds/BigTextEmbed'
+import { SingleImageEmbed } from '../../discord/embeds/SingleImageEmbed'
 import DalleRepository from '../../openai/repository/DalleRepository'
 
 const openAiClient = new OpenAiClient(openAIConfig)

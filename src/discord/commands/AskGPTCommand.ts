@@ -1,4 +1,4 @@
-import {type CommandInteraction, SlashCommandBuilder} from 'discord.js'
+import { type CommandInteraction, SlashCommandBuilder } from 'discord.js'
 import container from '../../application/container'
 
 const chatGPTRepository = container.openai.gptRepository

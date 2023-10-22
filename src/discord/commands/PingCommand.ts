@@ -1,4 +1,4 @@
-import {type CommandInteraction, SlashCommandBuilder} from 'discord.js'
+import { type CommandInteraction, SlashCommandBuilder } from 'discord.js'
 
 // TODO: use ioc to create commands using DiscordCommand abstract class
 module.exports = {
